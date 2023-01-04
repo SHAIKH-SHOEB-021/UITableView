@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var arrData = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"]
+    let arrData = ["I-Phone","Samsung","Xiaomi","Nokia","Jio","Moto","Realme","OnePlus","GooglePixel","Hawai","Asus","Horner","Oppo","Vivo","Techno"]
     var tableViewUI : UITableView!
     
     override func viewDidLoad() {
@@ -17,8 +17,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         tableViewUI = UITableView()
         tableViewUI.translatesAutoresizingMaskIntoConstraints = false
-        tableViewUI.dataSource = self
         tableViewUI.delegate = self
+        tableViewUI.dataSource = self
         tableViewUI.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         view.addSubview(tableViewUI)
         NSLayoutConstraint.activate([
@@ -28,7 +28,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             tableViewUI.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrData.count
     }
@@ -37,6 +36,5 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableViewCell.textLabel?.text = arrData[indexPath.row]
         return tableViewCell
     }
-    
 }
 
